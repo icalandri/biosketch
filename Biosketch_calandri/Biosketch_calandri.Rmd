@@ -1,0 +1,145 @@
+---
+name: "Ismael Luis Calandri"
+eracommons: ""
+position: "Asistant professor"
+myBibliography: "https://scholar.google.com/citations?hl=es&view_op=list_works&gmla=AOv-ny_7qIAnldsTzuKwnpX8WXHUf1oLfDa6e-xHtsRdrL3SmDjHqhtQtL3jAjTqOTuLPR-jHaBFjiBWrxSprGbYJXE3F3dKxGqiLPzsTPB-rUI&user=6W7W2D0AAAAJ"
+education:
+  - degree: "MD"
+    school: "Universidad Catolica de Cordoba"
+    date: "01/2010"
+    field: "Medicine"
+  - degree: "Neurologist"
+    school: "Fleni"
+    date: "05/2015"
+    field: "Neurology residence"
+  - degree: "Behavioral neurologist"
+    school: "Fleni"
+    date: "05/2017"
+    field: "Fellowship in cognitive neurology"
+  - degree: "-"
+    school: "Fleni"
+    date: "05/2016"
+    field: "Fellowship in cognitive neuroimaging"
+  - degree: "MS"
+    school: "Universidad de Buenos Aires"
+    date: "09/2017"
+    field: "Statistics for health science"
+researchsupport:
+  ongoing:
+    - grant: " 24AARG-D-1246942 "
+      pi: "Custodio, Nilton - Calandri, Ismael"
+      dates: "07/2024 -"
+      title: "Resilience in Andean American Indigenous with Alzheimer's disease"
+      description: "Evaluate the impact of risk factors on brain resilience to Alzheimer's disease using neuroimaging within a Mendelian randomization model."
+      role: "coPI"
+    - grant: " SG-22-1009956-iLEADS "
+      pi: " Calandri, Ismael - Ricardo Allegri"
+      dates: " 9/1/2022 - 12/31/2023 "
+      title: "ALZ Strategic Initiatives: InternationalLongitudinal Early-onset AD Study"
+      description: "Study sporadic forms of early-onset dementia in presenile subjects through longitudinal follow-up."
+      role: "PI"
+  completed:
+    - grant: " PICTO-COVID-SECUELAS-00016"
+      pi: "Allegri Ricardo"
+      dates: "Over"
+      title: "Neurocognitive sequelae of SARS-CoV-2: A multidimensional clinical-biological approach."
+      description: "Clinical characterization of subjects with post-COVID neurocognitive symptoms through imaging and plasma biomarkers."
+      role: "coPI"
+output:
+  biosketchr::nih_biosketch:
+    latex_engine: xelatex
+    keep_tex: yes
+bibliography: papers.bib
+bibliographystyle: apalike
+---
+
+```{r global_options, include=FALSE}
+library(dplyr)
+library(biosketchr)
+
+## This saves you from having to do this for every chunk
+knitr::opts_chunk$set(fig.path = 'figures/',
+                      echo = FALSE, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      results = "asis")
+
+# load positions/honors data
+d <- readr::read_csv("positions.csv")
+
+```
+
+```{=html}
+<!--
+The structure of this skeleton should stay the same. Add your specifics :)
+-->
+```
+# Personal Statement {.unnumbered}
+
+As a neurologist and dementia researcher, I integrate clinical expertise with statistical methods to study Alzheimer's disease (AD) progression. My work focuses on neuroimaging^1,2^, cognitive trajectories, and environmental risk factors^3,4^, aiming to improve diagnostics and patient care, especially in vulnerable populations.
+
+My research leverages multidimensional data to explore AD heterogeneity, particularly in low- and middle-income countries. I contribute to neuroimaging-clinical integration projects, advancing predictive models and intervention strategies. My primary interest is the development of diagnostic tools for early interventions in Alzheimer's disease in Latin American countries, combining clinical insights with statistical approaches to enhance dementia prevention efforts.
+
+Additionally, I collaborate with the Laboratorio del Tiempo, led by Drs. Casiraghi and Spiousas, where I have contributed to the analysis of actimetry and lunar cycles in healthy subjects^5^. This work expands my expertise in circadian rhythms and environmental influences on human behavior, reinforcing my multidisciplinary approach to neuroscience research.
+
+```{r statement_citations}
+# replace these keys with your own
+make_numbered_citations("German2021im", "Cubas_Guillen2024mt", "Calandri2024um","Calandri2020","Casiraghi2021-qs")
+```
+
+# Positions and Honors {.unnumbered}
+
+## Positions and Employment {.unnumbered}
+
+```{r positions}
+d %>% 
+  filter(section == "positions") %>% 
+  make_datetbl_nih(start_date, end_date, description, order)
+```
+
+## Other Experience and Professional Memberships {.unnumbered}
+
+```{r other_exp}
+d %>% 
+  filter(section == "other_exp") %>% 
+  make_datetbl_nih(start_date, end_date, description, order)
+```
+
+## Honors {.unnumbered}
+
+```{r honors}
+d %>% 
+  filter(section == "honors") %>% 
+  make_datetbl_nih(start_date, end_date, description, order, FALSE)
+```
+
+# Contribution to Science {.unnumbered}
+
+````{=tex}
+\begin{enumerate}
+
+\item My line of work has focused on identifying clinical markers of typical and atypical forms of Alzheimer's disease in Latin America in collaboration with global networks.
+
+```{r contribution_citations1}
+# replace these keys with your own
+make_numbered_citations("Calandri2023-yf","Chapleau2024-eo", "Bergeron2018-il", "Pomilio2022-xz","Mendez2018-io")
+```
+
+
+\item My other line of work has primarily focused on identifying risk factors and developing non-pharmacological strategies for early intervention.
+
+```{r contribution_citations2}
+# replace these keys with your own
+make_numbered_citations("Kivipelto2020-nl", "Crivelli2023-el", "Calandri2024u", "Paradela2024-dq", "Calandri2020-my")
+```
+
+\end{enumerate}
+````
+
+```{=html}
+<!--
+Can include additional contributions like the ones above, starting each with
+\item, followed by a short description, follwed by a chunk using 
+`make_numbered_citations`. Make sure these all appear before `end{enumerate}`
+-->
+```
